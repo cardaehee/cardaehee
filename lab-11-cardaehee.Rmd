@@ -22,7 +22,7 @@ shared_pokemon <- SharedData$new(pokemon)
 Column
 -------------------------------------
 
-### Component 1
+### Distribution of Total Stats by Primary Type
 
 ```{r, echo = FALSE}
 pokemon <- pokemon %>%
@@ -47,7 +47,7 @@ ggplotly(boxplot)
 Column
 -------------------------------------
 
-### Component 2
+### Attack vs. Defense Scatter Plot
 
 ```{r, echo = FALSE}
 p <- shared_pokemon %>%
@@ -69,3 +69,6 @@ SidebarName {.sidebar}
 ```{r, echo = FALSE}
 filter_select("poke_type", "Pokemon Type", shared_pokemon, ~`Type 1`)
 ```
+
+
+
