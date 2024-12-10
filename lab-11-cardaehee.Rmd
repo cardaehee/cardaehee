@@ -1,0 +1,10 @@
+---
+title: "Lab 11"
+author: "Daehee Cho"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+
