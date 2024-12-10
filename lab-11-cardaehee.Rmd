@@ -5,6 +5,16 @@ date: "`r Sys.Date()`"
 output: flexdashboard::flex_dashboard
 ---
 
+```{r setup, include = FALSE}
+library(tidyverse)
+library(plotly)
+library(crosstalk)
+```
+
+```{r}
+pokemon <- read_csv("pokemon.csv")
+```
+
 Column
 -------------------------------------
 
@@ -18,21 +28,24 @@ Column
 
 ### Component 2
 
-```{r}
+```{r, echo = FALSE}
+p <- pokemon %>%
+  ggplot(aes(x = Defense, y = Attack, color = `Type 1`)) +
+  geom_point(size = 2, alpha = 0.7) +
+  labs(
+    title = "Attack vs Defense Scatter Plot",
+    x = "Defense",
+    y = "Attack",
+    color = "Primary Type"
+  ) +
+  theme_minimal()
+ggplotly(p)
 ```
 
 SidebarName {.sidebar}
 ----------------------
 
-```{r setup, include = FALSE}
-library(tidyverse)
-library(plotly)
-library(crosstalk)
-```
 
-```{r}
-pokemon <- read_csv("pokemon.csv")
-```
 
 
 
